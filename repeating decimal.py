@@ -28,12 +28,14 @@ How it is used: Mathematical software.
 
 #from __future__ import division
 
-def checkio(fraction, detect_repetition=True, digit_limit=None):
+def convert(numerator, denominator):
 
     # If repetition detection is off, you must 
     # specify a limit on the digits returned 
-    numerator, denominator = fraction
+    #numerator, denominator = fraction
+    digit_limit = None
     decimal_found = False
+    detect_repetition = True
     v = numerator // denominator
     numerator = 10 * (numerator - v * denominator)
     answer = str(v)
@@ -72,7 +74,7 @@ def checkio(fraction, detect_repetition=True, digit_limit=None):
     return answer
 
 #print checkio([3, 8])
-print checkio([11, 7])
+print convert(1, 3)
 
 '''
 #These "asserts" using only for self-checking and not necessary for auto-testing

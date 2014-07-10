@@ -19,10 +19,11 @@ How it is used: For most decryption tasks you need to know the frequency of occu
 crack a simple addition or substitution cipher if we know the frequency in which letters appear. This is interesting stuff for language experts!
 '''
 import re
+from operator import itemgetter
 def checkio(text):
     text_lower = text.lower()
     mydict = {}
-    text_filtered = re.sub('[^qwertyuiopasdfghjklzxcvbnm]', '', text_lower)
+    text_filtered = re.sub('[^abcdefghijklmnopqrstuvwxyz]', '', text_lower)
     text_split = list(text_filtered)
     #print text_split
     for i in text_split:
@@ -32,10 +33,12 @@ def checkio(text):
             elif i not in mydict:
                 #print "Added one more letter"
                 mydict[i] = 1
-    #print max(mydict,key=mydict.get) 
-    return max(mydict,key=mydict.get) 
-    print text_split
-
+    #print sorted([(key) for (key,value) in mydict.items()])
+    if all(val==mydict.values()[0] for val in mydict.values()):
+        one = sorted([(key) for (key,value) in mydict.items()])
+        return one[0]
+    return max(mydict,key=mydict.get)
+'''
 #These "asserts" using only for self-checking and not necessary for auto-testing
 if __name__ == '__main__':
     assert checkio(u"Hello World!") == "l", "Hello test"
@@ -43,3 +46,6 @@ if __name__ == '__main__':
     assert checkio(u"One") == "e", "All letter only once."
     assert checkio(u"Oops!") == "o", "Don't forget about lower case."
     assert checkio(u"AAaooo!!!!") == "a", "Only letters."
+'''
+
+print checkio(u"fsbd")

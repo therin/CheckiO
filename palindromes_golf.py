@@ -8,14 +8,16 @@ Input: An integer.
 Output: A prime palindrome. An integer.
 '''
 
-def checkio(data):
-    #Your code here
-    #It's main function. Don't remove this function
-    #It's using for auto-testing and must return a result for check.
+def golf(data):
+  d=data+1
+  while str(d)!=str(d)[::-1] or not all(d%i for i in range(2,d)):d+=1
+  return d
 
-    #replace this for solution
-    data = str(data)
 
+'''
+
+
+data = str(data+1)
     def ispal1(data):
     	data = str(data)
     	data1 = data[::-1]
@@ -29,9 +31,9 @@ def checkio(data):
     	data = int(data) + 1
     	ispal1(data)
     return data
+'''
 
-
-print checkio(101)
+print golf(13)
 #==101
 #checkio(130)==131
 #checkio(131)==131

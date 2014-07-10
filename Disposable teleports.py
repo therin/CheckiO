@@ -1,11 +1,12 @@
 def checkio(teleports_string):
+
     teleports_string = teleports_string.split(',')
     print teleports_string
     graph = {}
     for entry in teleports_string:
         print entry
-        if entry[0] not in graph.keys():
-            graph[entry[0]] = [entry[1]]
+        if entry[0] not in graph.keys(): 
+            graph[entry[0]] = [numbers[numbers.index(entry)+1,numbers[numbers.index(entry)+2]
         else:
             graph[entry[0]].append(graph[1])
 
